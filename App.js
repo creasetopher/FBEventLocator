@@ -1,4 +1,5 @@
-
+//react-native run-ios
+//npm start
 
 import React from 'react';
 import {
@@ -46,7 +47,11 @@ export default class App extends React.Component {
     return (
 
       <View style = {styles.mainView}>
-        <LocationFetcher onGetLocation = {this.locationFetcherHandler} />
+        {/* <View style = {styles.locButton}>  */}
+        <View style = {styles.locButton}>
+          <LocationFetcher onGetLocation = {this.locationFetcherHandler} />
+        {/* </View> */}
+        </View>
         <UserMap userLocation = {this.state.userLocation}/>
 
         <View style = {styles.fbLoginContainer}>
@@ -54,7 +59,6 @@ export default class App extends React.Component {
         </View>
 
       </View>
-
 
 
     )
@@ -75,6 +79,12 @@ const styles = StyleSheet.create(
       marginBottom: 50,
       marginRight: 30
     },
+
+    locButton: {
+      flex: 1,
+      marginTop: 80,
+      marginBottom: 10
+    }
   }
 );
 

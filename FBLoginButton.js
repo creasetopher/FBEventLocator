@@ -12,9 +12,7 @@ export default class FBLoginButton extends Component {
     return (
       <View>
         <LoginButton
-          permissions = {["email", "user_location"]}
-          // scope = "email,user_events,user_location"
-          // readPermissions={['public_profile', 'email', 'user_events', ]}
+          permissions = {["email", "user_location", "user_birthday"]}
           onLoginFinished = {
             (error, result) => {
               if (error) {
@@ -37,10 +35,9 @@ export default class FBLoginButton extends Component {
                                       {
                                         parameters: {
                                           fields: {
-                                            string: 'email, name, location'
+                                            string: 'email, name, location, birthday'
                                           }
                                         },
-                                          // access_token: {
                                         accessToken: data.accessToken.toString()
 
                                       },
@@ -48,7 +45,6 @@ export default class FBLoginButton extends Component {
                                       (error, data) => {
                                         console.log("the data is: ");
                                         console.log(data);
-                                        // console.log("the token permissions = " + AccessToken);
                                       }
                     );
                     new GraphRequestManager().addRequest(req).start();
